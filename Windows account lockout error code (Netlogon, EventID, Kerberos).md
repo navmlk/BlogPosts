@@ -65,15 +65,15 @@ Here some tables with authentication error code for quick understand what’s ha
 | Reason	| Applies to logon failures only; it’s the reason the account failed to log on.
 | User Name	| The name of the user account attempting to log on
 | Domain	| The domain of the user account attempting to log on.
-| Logon Type	| A numeric value indicating the type of logon attempted. Possible values are:
-2 – Interactive (interactively logged on)
-3 – Network (accessed system via network)
-4 – Batch (started as a batch job)
-5 – Service (a Windows service started by service controller)
-6 – Proxy (proxy logon; not used in Windows NT or Windows 2000)
-7 – Unlock (unlock workstation)
-8 – NetworkCleartext (network logon with cleartext credentials)
-9 – NewCredentials (used by RunAs when the /netonly option is used)
+| Logon Type	| A numeric value indicating the type of logon attempted. Possible values are: 
+- Interactive (interactively logged on)
+- Network (accessed system via network)
+- Batch (started as a batch job)
+– Service (a Windows service started by service controller)
+– Proxy (proxy logon; not used in Windows NT or Windows 2000)
+– Unlock (unlock workstation)
+– NetworkCleartext (network logon with cleartext credentials)
+– NewCredentials (used by RunAs when the /netonly option is used) 
 | Logon Process	| The process performing the logon. The following are some example logon processes:
 – Advapi (triggered by a call to LogonUser; LogonUser calls LsaLogonUser, and one of the arguments to LsaLogonUser, OriginName, identifies the origin of the logon attempt)
 – User32 (normal Windows 2000 logon using WinLogon)
