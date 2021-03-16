@@ -4,7 +4,8 @@
 ![image](https://user-images.githubusercontent.com/67142634/111323692-055f9800-8662-11eb-83f1-945d8580491e.png)
 
 2.  Click on the Security & Compliance Admin Center from the Office 365 Admin center left navigation (You can also get there from https://protection.office.com using tenant admin)
-![image](https://user-images.githubusercontent.com/67142634/111323738-101a2d00-8662-11eb-9f1a-191de171887a.png)
+
+    ![image](https://user-images.githubusercontent.com/67142634/111323738-101a2d00-8662-11eb-9f1a-191de171887a.png)
 
 3.  Click on Policy  Create a policy under Data loss prevention in the left navigation in the Security & Compliance admin center
 ![image](https://user-images.githubusercontent.com/67142634/111323768-15777780-8662-11eb-8753-c7a9a6dd5df2.png)
