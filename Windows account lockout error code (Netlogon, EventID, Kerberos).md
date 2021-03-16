@@ -65,22 +65,6 @@ Here some tables with authentication error code for quick understand what’s ha
 | Reason	| Applies to logon failures only; it’s the reason the account failed to log on.
 | User Name	| The name of the user account attempting to log on
 | Domain	| The domain of the user account attempting to log on.
-| Logon Type	| A numeric value indicating the type of logon attempted. Possible values are: 
-2- Interactive (interactively logged on)
-3- Network (accessed system via network)
-4- Batch (started as a batch job)
-5– Service (a Windows service started by service controller)
-6– Proxy (proxy logon; not used in Windows NT or Windows 2000)
-7– Unlock (unlock workstation)
-8– NetworkCleartext (network logon with cleartext credentials)
-9– NewCredentials (used by RunAs when the /netonly option is used) 
-Logon Process	| The process performing the logon. The following are some example logon processes:
-– Advapi (triggered by a call to LogonUser; LogonUser calls LsaLogonUser, and one of the arguments to LsaLogonUser, OriginName, identifies the origin of the logon attempt)
-– User32 (normal Windows 2000 logon using WinLogon)
-– SCMgr (Service Control Manager started a service)
-– KsecDD (network connections to the SMB server-for example, when you use a NET USE command)
-– Kerberos (the Kerberos Security Support Provider [SSP])
-– NtlmSsp (the NTLM SSP)
-– Seclogon (Secondary Logon-that is, the RunAs command)
-– IIS (IIS performed the logon; generated when logging on the IUSR_machinename account or when using Digest or Basic authentication)
+| Logon Type	| A numeric value indicating the type of logon attempted. Possible values are:<br/>2- Interactive (interactively logged on)<br/>3- Network (accessed system via network)<br/>4- Batch (started as a batch job)<br/>5– Service (a Windows service started by service controller)<br/>6– Proxy (proxy logon; not used in Windows NT or Windows 2000)<br/>7– Unlock (unlock workstation)<br/>8– NetworkCleartext (network logon with cleartext credentials)<br/>9– NewCredentials (used by RunAs when the /netonly option is used) 
+Logon Process	| The process performing the logon. The following are some example logon processes:<br/>– Advapi (triggered by a call to LogonUser; LogonUser calls LsaLogonUser, and one of the arguments to LsaLogonUser, OriginName, identifies the origin of the logon attempt)<br/>– User32 (normal Windows 2000 logon using WinLogon)<br/>– SCMgr (Service Control Manager started a service)<br/>– KsecDD (network connections to the SMB server-for example, when you use a NET USE command)<br/>– Kerberos (the Kerberos Security Support Provider [SSP])<br/>– NtlmSsp (the NTLM SSP)<br/>– Seclogon (Secondary Logon-that is, the RunAs command)<br/>– IIS (IIS performed the logon; generated when logging on the IUSR_machinename account or when using Digest or Basic authentication)
 | Authentication Package	| The security package called to attempt to log on the account. An authentication package is a dynamic-link library (DLL) that analyzes logon data and determines whether to authenticate an account. Most common examples are Kerberos, Negotiate, NTLM, and MICROSOFT_AUTHENTICATION_PACKAGE_V1_0 (also called MSV1_0; authenticates users in the SAM database, supports pass-through authentication to accounts in trusted domains, and supports subauthentication packages) Workstation Name Workstation name, if known, used by the principal during logon.|
