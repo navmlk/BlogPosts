@@ -39,24 +39,34 @@ Other []:
 
 Lastly, the system will ask you to review the information for accuracy.  Enter Y to continue to our next step.
 
-```Is the information correct? [Y/n]```
+```aws
+Is the information correct? [Y/n]
+```
 
 **Step 2: Grant Root Privileges**
 
 Assigning a user root access is to grant a user the highest power.  My user, user1, can then make changes to the system as a whole, so it’s critical to allow this access only to users who need it. Afterward, user1 will be able to use sudo before commands that are usually designed to be used by the root user.
 
-```usermod -aG sudo user1```
+```aws
+usermod -aG sudo user1
+```
 
 **Step 3: Verify New User**
 
 As root, you can switch to your new user with the su – command and then test to see if your new user has root privileges.
 
-```su - user1```
+```aws
+su - user1
+```
 
 If the user has properly been granted root access the command below will show user1 in the list.
 
-```grep '^sudo' /etc/group```
+```aws
+grep '^sudo' /etc/group
+```
 
 Output:
 
-```sudo:x:27:user1```
+```aws
+sudo:x:27:user1
+```
