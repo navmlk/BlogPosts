@@ -6,7 +6,7 @@ We will be leveraging AWS Systems Manager, IAM, CloudWatch and EC2 services on A
 
 1.  Navigate to AWS IAM Service (Global Service) to create relevant roles and policies
 
-Follow this post on how to create roles and assign policies
+Follow [this](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-sharing-logs-create-role.html) post on how to create roles and assign policies
 
 -   CloudWatchAdmin (with below policies)
     -   AmazonEC2RoleforSSM
@@ -35,7 +35,7 @@ You will need to assign this role to EC2 instance to capture logs and Metrics in
 ![alt text](https://sysadmindiary.co.uk/wp-content/uploads/2019/10/008-1024x432.png)
 -   Select AWS-ConfigureAWSPackage
 
-![alt text]https://sysadmindiary.co.uk/wp-content/uploads/2019/10/009-1024x513.png
+![alt text](https://sysadmindiary.co.uk/wp-content/uploads/2019/10/009-1024x513.png)
 -   Specify below values to Command parameters
 
 ![alt text](https://sysadmindiary.co.uk/wp-content/uploads/2019/10/010-1024x238.png)
@@ -46,9 +46,10 @@ You will need to assign this role to EC2 instance to capture logs and Metrics in
 
 4. Now RDP on to EC2 instance which has CloudWatchAdmin role assigned to it.
 
-Launch CMD as admin and navigate to C:\Program Files\Amazon\CloudWatchAgent
-Execute amazon-cloudwatch-agent-config-wizard.exe
-Go through the wizard as below, this will generate the config file that will be stored in parameter store.
+-   Launch CMD as admin and navigate to `C:\Program Files\Amazon\CloudWatchAgent`
+-   Execute amazon-cloudwatch-agent-config-wizard.exe
+-   Go through the wizard as below, this will generate the config file that will be stored in parameter store.
+```aws
 On which OS are you planning to use the agent?
 1. linux
 2. windows
@@ -143,19 +144,23 @@ default choice: [1]:
 Choose default
 (This value is auto generated from the role that is assigned to
 this EC2 instance)
+```
 Now Cloudwatch config file is generated and pushed in to parameter store in Systems Manager service.
 
-5.        Navigate to Systems Manager Service on AWS Management console.
+5.  Navigate to Systems Manager Service on AWS Management console.
 
-Verify that AmazonCloudWatch-Windows File exists in parameter store by selecting Parameter Store
-
-Now we need to push this config file to EC2 instances to start Cloudwatch Agent Service.
-Click on Run Command on AWS System Manager Service.
-Select Document name prefix Equal AmazonCloudWatch
+-   Verify that AmazonCloudWatch-Windows File exists in parameter store by selecting Parameter Store
+![alt text](https://sysadmindiary.co.uk/wp-content/uploads/2019/10/012-1024x541.png)
+-   Now we need to push this config file to EC2 instances to start Cloudwatch Agent Service.
+-   Click on Run Command on AWS System Manager Service.
+-   Select Document name prefix Equal AmazonCloudWatch
+![alt text](https://sysadmindiary.co.uk/wp-content/uploads/2019/10/013-1024x300.png)
 
 Specify Command Parameters as below
+![image](https://user-images.githubusercontent.com/67142634/111317353-fece2200-865b-11eb-848a-481611b95259.png)
 
 Choose targets manually
+![image](https://user-images.githubusercontent.com/67142634/111317417-10afc500-865c-11eb-938c-e7f379ebe8fe.png)
 
 Hit Run
 This will push the config file from parameter store to EC2 instances
@@ -163,6 +168,7 @@ This will push the config file from parameter store to EC2 instances
 
 Navigate to CloudWatch services
 Select Metrics, you should see CWAgent under Custom Namespaces
+![image](https://user-images.githubusercontent.com/67142634/111317491-1f967780-865c-11eb-9ff6-d791ababf84c.png)
 
 References:
 
