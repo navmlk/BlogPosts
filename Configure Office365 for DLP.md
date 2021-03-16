@@ -36,4 +36,4 @@
 11. Review the settings and Create the rule
 ![image](https://user-images.githubusercontent.com/67142634/111324137-68e9c580-8662-11eb-8dc7-789b38c31dce.png)
 
-View the [Microsoft support article] (https://support.office.com/en-us/article/Send-email-notifications-and-show-policy-tips-for-DLP-policies-87496bc5-9601-4473-8021-cb05c71369c1) for more details on sending email notifications and show policy tips for DLP policies.
+View the [Microsoft support article](https://support.office.com/en-us/article/Send-email-notifications-and-show-policy-tips-for-DLP-policies-87496bc5-9601-4473-8021-cb05c71369c1) for more details on sending email notifications and show policy tips for DLP policies.
