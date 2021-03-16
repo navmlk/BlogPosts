@@ -13,10 +13,10 @@ In my case, I needed to use a custom HP image for some servers, and I’m not go
 ## Workaround:
 For EACH host in the datacenter that had a connection to the faulty storage, I performed these steps:
 
-1- Navigate to Hosts & Clusters tab
-2- Select first host
-3- Configure tab
-4- Storage Devices tab
-5- Click button “Refresh host storage info…”
-6- Click button “Rescan all storage adapters…”
-7- Repeat for next host.
+1. Navigate to Hosts & Clusters tab
+2. Select first host
+3. Configure tab
+4. Storage Devices tab
+5. Click button “Refresh host storage info…”
+6. Click button “Rescan all storage adapters…”
+7. Repeat for next host.
