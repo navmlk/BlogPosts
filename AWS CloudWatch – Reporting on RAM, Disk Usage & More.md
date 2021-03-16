@@ -170,7 +170,7 @@ Navigate to CloudWatch services
 Select Metrics, you should see CWAgent under Custom Namespaces
 ![image](https://user-images.githubusercontent.com/67142634/111317491-1f967780-865c-11eb-9ff6-d791ababf84c.png)
 
-References:
+**References:**
 
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html
 
