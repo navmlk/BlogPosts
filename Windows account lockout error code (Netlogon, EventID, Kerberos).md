@@ -68,3 +68,39 @@ Here some tables with authentication error code for quick understand what’s ha
 | Logon Type	| A numeric value indicating the type of logon attempted. Possible values are:<br/>2- Interactive (interactively logged on)<br/>3- Network (accessed system via network)<br/>4- Batch (started as a batch job)<br/>5– Service (a Windows service started by service controller)<br/>6– Proxy (proxy logon; not used in Windows NT or Windows 2000)<br/>7– Unlock (unlock workstation)<br/>8– NetworkCleartext (network logon with cleartext credentials)<br/>9– NewCredentials (used by RunAs when the /netonly option is used) 
 Logon Process	| The process performing the logon. The following are some example logon processes:<br/>– Advapi (triggered by a call to LogonUser; LogonUser calls LsaLogonUser, and one of the arguments to LsaLogonUser, OriginName, identifies the origin of the logon attempt)<br/>– User32 (normal Windows 2000 logon using WinLogon)<br/>– SCMgr (Service Control Manager started a service)<br/>– KsecDD (network connections to the SMB server-for example, when you use a NET USE command)<br/>– Kerberos (the Kerberos Security Support Provider [SSP])<br/>– NtlmSsp (the NTLM SSP)<br/>– Seclogon (Secondary Logon-that is, the RunAs command)<br/>– IIS (IIS performed the logon; generated when logging on the IUSR_machinename account or when using Digest or Basic authentication)
 | Authentication Package	| The security package called to attempt to log on the account. An authentication package is a dynamic-link library (DLL) that analyzes logon data and determines whether to authenticate an account. Most common examples are Kerberos, Negotiate, NTLM, and MICROSOFT_AUTHENTICATION_PACKAGE_V1_0 (also called MSV1_0; authenticates users in the SAM database, supports pass-through authentication to accounts in trusted domains, and supports subauthentication packages) Workstation Name Workstation name, if known, used by the principal during logon.|
+
+
+| KERBEROS ERROR NUMBER |	KERBEROS ERROR CODE	| DESCRIPTION |
+|-----------------------| ------------------- | ----------- |
+| 0x3	| KDC_ERR_BAD_PVNO |	Requested protocol version number not supported.|
+| 0x6	| KDC_ERR_C_PRINCIPAL_UNKNOWN	| Client not found in Kerberos database.
+| 0x7	| KDC_ERR_S_PRINCIPAL_UNKNOWN	| Server not found in Kerberos database.
+| 0x8	| KDC_ERR_PRINCIPAL_NOT_UNIQUE	| Multiple principal entries in database.
+| 0xA	| KDC_ERR_CANNOT_POSTDATE	| Ticket not eligible for postdating.
+| 0xB	| KDC_ERR_NEVER_VALID	| Requested start time is later than end time.
+| 0xC	| KDC_ERR_POLICY	| KDC policy rejects request.
+| 0xD	| KDC_ERR_BADOPTION	| KDC cannot accommodate requested option.
+| 0xE	| KDC_ERR_ETYPE_NOSUPP	| KDC has no support for encryption type.
+| 0xF	| KDC_ERR_SUMTYPE_NOSUPP	| KDC has no support for checksum type.
+| 0x10	| KDC_ERR_PADATA_TYPE_NOSUPP	| KDC has no support for pre-authentication data type.
+| 0x12	| KDC_ERR_CLIENT_REVOKED	| Client’s credentials have been revoked.
+| 0x17	| KDC_ERR_KEY_EXPIRED	| Password has expired – change password to reset.
+| 0x18	| KDC_ERR_PREAUTH_FAILED	| Pre-authentication information was invalid.
+| 0x19	| KDC_ERR_PREAUTH_REQUIRED	| Additional pre-authentication required.
+| 0x1B	| KDC_ERR_MUST_USE_USER2USER	| Server principal valid for user-to-user only.
+| 0x1C	| KDC_ERR_PATH_NOT_ACCPETED	| KDC Policy rejects transited path.
+| 0x1D	| KDC_ERR_SVC_UNAVAILABLE	| A service is not available.
+| 0x1F	| KRB_AP_ERR_BAD_INTEGRITY	| Integrity check on decrypted field failed.
+| 0x20	| KRB_AP_ERR_TKT_EXPIRED	| Ticket expired.
+| 0x21	| KRB_AP_ERR_TKT_NYV	| Ticket not yet valid.
+| 0x22	| KRB_AP_ERR_REPEAT	| Request is a replay.
+| 0x23	| KRB_AP_ERR_NOT_US	| The ticket isn’t for us.
+| 0x24	| KRB_AP_ERR_BADMATCH	| Ticket and authenticator do not match.
+| 0x25	| KRB_AP_ERR_SKEW	| Clock skew too great.
+| 0x28	| KRB_AP_ERR_MSG_TYPE	| Invalid message type.
+| 0x29	| KRB_AP_ERR_MODIFIED	| Message stream modified.
+| 0x34	| KRB_ERR_RESPONSE_TOO_BIG	| Response too big for UDP, retry with TCP.
+| 0x3C	| KRB_ERR_GENERIC	| Generic error (description in e-text).
+| 0x44	| KDC_ERR_WRONG_REALM	| User-to-user TGT issued different KDC.
+
+Reference: http://technet.microsoft.com/en-us/library/cc776964%28WS.10%29.aspx http://technet.microsoft.com/en-us/library/cc738673%28WS.10%29.aspx
