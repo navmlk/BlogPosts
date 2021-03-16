@@ -1,8 +1,8 @@
 
 Here some tables with authentication error code for quick understand what’s happpen
 
-| **NETLOGON LOG ERROR CODE |	DESCRIPTION** |
-| --- | --- |
+| **NETLOGON LOG ERROR CODE** |	**DESCRIPTION** |
+| -------------- | --- |
 | 0x0	| Successful login |
 | 0xC0000064	| The specified user does not exist
 | 0xC000006A	| The value provided as the current password is not correct
@@ -19,8 +19,8 @@ Here some tables with authentication error code for quick understand what’s ha
 | 0xC0000234	| The user account has been automatically locked
 
 
-| **LOGON EVENT ID | DESCRIPTION** |
-| --- | --- |
+| **LOGON EVENT ID** | **DESCRIPTION** |
+| --------- | --- |
 | 528	| A user successfully logged on to a computer. For information about the type of logon, see the Logon Types table below.
 | 529	| Logon failure. A logon attempt was made with an unknown user name or a known user name with a bad password.
 | 530	| Logon failure. A logon attempt was made, but the user account tried to log on outside of the allowed time.
@@ -56,3 +56,31 @@ Here some tables with authentication error code for quick understand what’s ha
 | 681	| Logon failure. A domain account logon was attempted. This event is not generated in Windows XP or in the Windows Server 2003 family.
 | 682	| A user has reconnected to a disconnected terminal server session.
 | 683	| A user disconnected a terminal server session without logging off. Note: This event is generated when a user is connected to a terminal server session over the network. It appears on the terminal server.
+
+| **Event ID Field**	| **Comments** | 
+| --- | --- |
+| Event Type, Source,Category,ID,Date,and Time	| self-explanatory | 
+| User	| The user account performing the logon. For example, this might be NT AUTHORITYSYSTEM,which is the LocalSystem account used to start many Windows 2000 services.
+| Computer	| The computer on which the event occurred
+| Reason	| Applies to logon failures only; it’s the reason the account failed to log on.
+| User Name	| The name of the user account attempting to log on
+| Domain	| The domain of the user account attempting to log on.
+| Logon Type	| A numeric value indicating the type of logon attempted. Possible values are:
+2 – Interactive (interactively logged on)
+3 – Network (accessed system via network)
+4 – Batch (started as a batch job)
+5 – Service (a Windows service started by service controller)
+6 – Proxy (proxy logon; not used in Windows NT or Windows 2000)
+7 – Unlock (unlock workstation)
+8 – NetworkCleartext (network logon with cleartext credentials)
+9 – NewCredentials (used by RunAs when the /netonly option is used)
+| Logon Process	| The process performing the logon. The following are some example logon processes:
+– Advapi (triggered by a call to LogonUser; LogonUser calls LsaLogonUser, and one of the arguments to LsaLogonUser, OriginName, identifies the origin of the logon attempt)
+– User32 (normal Windows 2000 logon using WinLogon)
+– SCMgr (Service Control Manager started a service)
+– KsecDD (network connections to the SMB server-for example, when you use a NET USE command)
+– Kerberos (the Kerberos Security Support Provider [SSP])
+– NtlmSsp (the NTLM SSP)
+– Seclogon (Secondary Logon-that is, the RunAs command)
+– IIS (IIS performed the logon; generated when logging on the IUSR_machinename account or when using Digest or Basic authentication)
+| Authentication Package	| The security package called to attempt to log on the account. An authentication package is a dynamic-link library (DLL) that analyzes logon data and determines whether to authenticate an account. Most common examples are Kerberos, Negotiate, NTLM, and MICROSOFT_AUTHENTICATION_PACKAGE_V1_0 (also called MSV1_0; authenticates users in the SAM database, supports pass-through authentication to accounts in trusted domains, and supports subauthentication packages) Workstation Name Workstation name, if known, used by the principal during logon.|
